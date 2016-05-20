@@ -9,6 +9,8 @@ public class ConsoleLauncher {
 		
 		Song1 song = new Song1();
 		song.showNotes();
+		song.repeat(3);
+		song.saveTheMidi();
 		song.play();
 	     
 	}

@@ -3,8 +3,10 @@ package pl.javadevmatt.jmusicplayground.songs;
 import jm.JMC;
 import jm.music.data.Note;
 import jm.music.data.Phrase;
+import jm.music.tools.Mod;
 import jm.util.Play;
 import jm.util.View;
+import jm.util.Write;
 
 public class Song1 {
 	
@@ -31,5 +33,13 @@ public class Song1 {
 	
 	public void play(){
 		 Play.midi(phrase);
+	}
+	
+	public void repeat(int i){
+		Mod.repeat(phrase, 3);
+	}
+	
+	public void saveTheMidi(){
+		Write.midi(phrase, "file.mid");
 	}
 }
