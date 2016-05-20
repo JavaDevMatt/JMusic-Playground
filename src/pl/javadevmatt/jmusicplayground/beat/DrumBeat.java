@@ -38,10 +38,12 @@ public abstract class DrumBeat implements JMC {
 	 * create the desired beat.
 	 */
 	protected abstract void composeHats(final Phrase hats);
+	
+	protected abstract double getTempo();
 
 	/** Saves the drum beat to the hard drive */
-	public final void saveToFileAndPlay() {
-		final Score score = new Score(getName(), ALLEGRO);
+	public final void saveToFile() {
+		final Score score = new Score(getName(), getTempo());
 		final Phrase kicksPhrase = new Phrase("Kicks");
 		composeKicks(kicksPhrase);
 		addToBeat(kicksPhrase, score);
@@ -54,7 +56,6 @@ public abstract class DrumBeat implements JMC {
 		composeHats(hatsPhrase);
 		addToBeat(hatsPhrase, score);
 
-		Play.midi(score);
 		Write.midi(score, getName() + ".mid");
 	}
 
@@ -67,14 +68,23 @@ public abstract class DrumBeat implements JMC {
 
 	// Convenience fields for use in subclasses
 	protected static final Note KICK_CROTCHET = new Note(BASS_DRUM_1, CROTCHET);
+	protected static final Note KICK_EN = new Note(BASS_DRUM_1, EN);
+	
 	protected static final Note SNARE_CROTCHET = new Note(ACOUSTIC_SNARE,
 			CROTCHET);
+	protected static final Note SNARE_EN = new Note(ACOUSTIC_SNARE,
+			EN);
+	
 	protected static final Note HAT_CROTCHET = new Note(CLOSED_HI_HAT, CROTCHET);
 	protected static final Note HAT_EN = new Note(CLOSED_HI_HAT, EN);
+	protected static final Note HAT_SN = new Note(CLOSED_HI_HAT, SN);
+	
 	protected static final Note REST_CROTCHET = new Note(REST, CROTCHET);
+	protected static final Note REST_EN = new Note(REST, EN);
 
 	// Constants used in this class
-	private static final double ALLEGRO = 130.0;
+	protected static final double ALLEGRO = 130.0;
+	
 	private static final int DRUM_CHANNEL = 9;
 	private static final int STANDARD_KIT = 0;
 }

@@ -33,4 +33,9 @@ public class BasicBeat extends DrumBeat {
 			hats.addNote(HAT_EN);
 		}
 	}
+	
+	@Override
+	protected double getTempo() {
+		return ALLEGRO;
+	}
 }
