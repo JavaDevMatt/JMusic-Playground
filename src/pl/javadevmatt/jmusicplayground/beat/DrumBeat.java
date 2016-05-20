@@ -70,6 +70,7 @@ public abstract class DrumBeat implements JMC {
 	protected static final Note SNARE_CROTCHET = new Note(ACOUSTIC_SNARE,
 			CROTCHET);
 	protected static final Note HAT_CROTCHET = new Note(CLOSED_HI_HAT, CROTCHET);
+	protected static final Note HAT_EN = new Note(CLOSED_HI_HAT, EN);
 	protected static final Note REST_CROTCHET = new Note(REST, CROTCHET);
 
 	// Constants used in this class

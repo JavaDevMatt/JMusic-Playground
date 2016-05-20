@@ -29,9 +29,8 @@ public class BasicBeat extends DrumBeat {
 	}
 
 	protected void composeHats(final Phrase hats) {
-		hats.addNote(HAT_CROTCHET);
-		hats.addNote(HAT_CROTCHET);
-		hats.addNote(HAT_CROTCHET);
-		hats.addNote(HAT_CROTCHET);
+		for(int i = 0; i < 8; i++){
+			hats.addNote(HAT_EN);
+		}
 	}
 }
